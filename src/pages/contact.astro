@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/header.astro';
 import Footer from '@/components/footer.astro';
-
+import { sendMail } from '@/scripts/server.ts';
 
 export const prerender = false;
 
@@ -25,17 +25,20 @@ export const prerender = false;
                 
                 try{
                     const data = await Astro.request.formData();
-                    const name = data.get('name');
-                    const phonenumber = data.get('phonenumber');
-                    const email = data.get('email');
-                    const modality = data.get('modality');
+                    const name = data.get('name') as string;
+                    const phonenumber = data.get('phonenumber') as string;
+                    const email = data.get('email') as string;
+                    const modality = data.get('modality') as string;
 
                         // TODO: Handle form submission (e.g., send email)
-                
-                    console.log('Form submitted:', { name, phonenumber, email, modality });
-                
 
+                    let subject = name + ' Solicita más información'
+                    let emailcontent = "<h1>Datos de la consulta</h1> <p>Nombre: "+name+" </p>"+
+                                        "<p>Email: "+email+"</p> <p>Teléfono: "+phonenumber+"</p> <p>Modalidad: "+modality+"</p>";
+
+                    await sendMail(subject,emailcontent);
                     return Astro.redirect('/contact?sent=success');
+
 
                 } catch(error){
                     console.error('Error processing form submission:', error);
@@ -91,7 +94,7 @@ export const prerender = false;
 
             </div>
 
-            <p class="text-center gap-4 mb-10 px-4 text-white">Si lo prefieres, puedes contactarnos a través de <a class="font-bold text-[#A7BD5F] underline decoration-2 " href="https://wa.me/610774203" target="_blank">WhatsApp</a> o mandándonos un mensaje a nuestro <a class="font-bold text-[#6BBBDD] underline decoration-2 " href="https://www.instagram.com/opoinnovacv" target="_blank">Instagram</a>.</p>
+            <p class="text-center gap-4 mb-10 px-4 text-white">Si lo prefieres, puedes contactarnos a través de <a class="font-bold text-[#A7BD5F] underline decoration-2 " href="https://wa.me/123456789" target="_blank">WhatsApp</a> o mandándonos un mensaje a nuestro <a class="font-bold text-[#6BBBDD] underline decoration-2 " href="https://www.instagram.com/opoinnovacv" target="_blank">Instagram</a>.</p>
 
         
 
