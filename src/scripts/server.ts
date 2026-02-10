@@ -8,7 +8,7 @@ console.log(import.meta.env.RESEND_API_KEY);
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
     const{data,error} = await resend.emails.send({
         from:'Consulta@resend.dev',
-        to:['darkplayer03@gmail.com'],
+        to:['opoinnovasecretaria@gmail.com'],
         subject:emailSubject,
         html:emailContent
     });
