@@ -1,0 +1,155 @@
+---
+import Header from '../components/header.astro';
+import Layout from '../layouts/Layout.astro';
+import Booksvg from '../assets/books.svg';
+import Messagesvg from '../assets/message-circle.svg';
+import Moviesvg from '../assets/movie.svg';
+import Pencilsvg from '../assets/pencil.svg';
+import Footer from '../components/footer.astro';
+import BgImage from '../assets/woman_studying.jpg';
+---
+
+<Layout>
+  <Header />
+  <div class="relative w-full min-h-fit md:h-full flex flex-col">
+    <img class="w-full h-full object-cover absolute inset-0 filter brightness-50" src={BgImage.src} alt="Red-haired Woman studying" />
+      
+      <div class="relative w-full h-fit flex flex-col">
+
+        <div class="relative flex flex-col">
+            <h1 class="text-white text-xl font-bold z-10 relative px-8 pt-10 text-left
+                      md:text-4xl md:px-20 md:text-left md:pt-20
+                      lg:text-6xl 
+                      xl:text-7xl 
+                      2xl:text-8xl 2xl:w-[75%]">
+                      ¿Aún no has empezado a preparar tu oposición?
+              </h1>
+              <p class="text-sm text-white text-[14px]  px-10 pt-3 
+                         md:px-20 md:pt-8
+                         lg:text-lg">
+                        Muchos opositores dudan o no saben por donde empezar. En Opoinnova te ayudamos a afrontar este reto y conseguir tu plaza.
+              </p>
+        </div>
+
+        <div class="w-full h-full mt-12 flex flex-wrap gap-4 justify-center 
+                    md:flex-row md:px-10 md:mt-20
+                    lg:w-full lg:px-20 lg:pt-50
+                    xl:w-full
+                    ">
+          
+            <div class="item flex flex-col items-center justify-center p-10 rounded-lg hover:scale-105 transition-transform">
+              <Booksvg class="w-12 h-12 text-blue-500" />
+              <h2 class="text-md font-semibold text-center">Temario actualizado</h2>
+            </div>
+
+            <div class="item flex flex-col items-center justify-center p-10 rounded-lg hover:scale-105 transition-transform">
+              <Messagesvg class="w-12 h-12 text-green-500" />
+              <h2 class="text-md font-semibold text-center">Tutorías individuales</h2>
+            </div>
+         
+            <div class="item flex flex-col items-center justify-center p-10 rounded-lg hover:scale-105 transition-transform">
+              <Moviesvg class="w-12 h-12 text-red-500" />
+              <h2 class="text-md font-semibold text-center">Clases online y presenciales</h2>
+            </div>
+         
+            <div class="item flex flex-col items-center justify-center p-10 rounded-lg hover:scale-105 transition-transform">
+              <Pencilsvg class="w-12 h-12 text-yellow-500" />
+              <h2 class="text-md font-semibold text-center">Simulacros de examen</h2>
+            </div>
+      
+        </div>
+
+        <div class="flex flex-col items-center justify-center px-4
+          py-10
+          md:mt-10
+          xl:mt-50
+        ">
+          <p class="text-white p-2">Matricula abierta curso 25/26</p>
+          <a href="/contact" class="px-8 py-4 bg-[#798F31] hover:bg-[#0B76A3] hover:scale-105 text-white font-bold rounded-md transition">Solicitar información</a>
+        </div>
+
+      </div>
+     
+  </div>
+  <Footer />
+</Layout>
+
+
+<style>
+	
+
+	body{
+		background-color: #2e2e2e;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+	}
+
+
+  .item{
+    background-color: #F5F5F5;
+    gap: 16px;
+    width: 300px;
+    height: 190px;
+    box-shadow: 4px 4px 10px rgba(19, 19, 19, 0.651);
+  }
+
+  @media screen and (max-width: 768px) {
+    .item{
+       width: 45%;
+      height: 190px;
+    }
+
+  }
+
+
+
+</style>
+
+<!--
+
+<div class="relative grid grid-cols-2 md:grid-cols-5  h-full w-full">
+
+        <div class=" relative md:col-span-5 col-span-2 xl:col-span-4 flex flex-col justify-center items-start 2xl:p-20 pt-8 p-6 space-y-4 md:space-y-6 ">
+
+          <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-left text-white">¿Aún no has empezado a preparar tu oposición?</h1>
+          <p class="text-sm md:text-lg text-white 2xl:text-center">Muchos opositores dudan o no saben por donde empezar. En Opoinnova te ayudamos a afrontar este reto y conseguir tu plaza.</p>
+        </div>
+
+
+        <div class="grid grid-cols-2 md:flex md:flex-wrap md:flex-row  col-span-2  justify-center items-center  pt-20 px-4 md:pt-0 gap-6 ">
+
+          <div class="item w-[100%] h-[100%] md:w-[300px] md:h-[200px] rounded-lg p-6 flex flex-col items-center justify-center space-y-4 hover:scale-105 transition-transform">
+            <Booksvg class="w-12 h-12 text-blue-500" />
+            <h2 class="text-md font-semibold text-center">Temario actualizado</h2>
+          </div>
+
+          <div class="item w-[100%] h-[100%] md:w-[300px] md:h-[200px] rounded-lg p-6 flex flex-col items-center justify-center space-y-4 hover:scale-105 transition-transform">
+            <Messagesvg class="w-12 h-12 text-green-500" />
+            <h2 class="text-md font-semibold text-center">Tutorías individuales</h2>
+          </div>
+
+          <div class="item w-[100%] h-[100%] md:w-[300px] md:h-[200px] rounded-lg p-6 flex flex-col items-center justify-center space-y-4 hover:scale-105 transition-transform">
+            <Moviesvg class="w-12 h-12 text-red-500" />
+            <h2 class="text-md font-semibold text-center">Clases online y presenciales</h2>
+          </div>
+
+
+          <div class="item w-[100%] h-[100%] md:w-[300px] md:h-[200px] rounded-lg p-6 flex flex-col items-center justify-center space-y-4 hover:scale-105 transition-transform">
+            <Pencilsvg class="w-12 h-12 text-yellow-500" />
+            <h2 class="text-md font-semibold text-center">Simulacros de examen </h2>
+          </div>
+
+        </div>
+
+
+
+        <div class="col-span-2 md:col-span-5 flex flex-col items-center justify-center px-4 py-24 md:py-10 ">
+          <p class="text-white p-2">Matricula abierta curso 25/26</p>
+          <a href="/contact" class="px-8 py-4 bg-[#798F31] hover:bg-[#0B76A3] hover:scale-105 text-white font-bold rounded-md transition">Solicitar información</a>
+        </div>
+
+
+    </div> 
+
+-->

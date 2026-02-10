@@ -1,0 +1,112 @@
+---
+import Header from '../components/header.astro';
+import Layout from '../layouts/Layout.astro';
+import Booksvg from '../assets/books.svg';
+import Messagesvg from '../assets/message-circle.svg';
+import Moviesvg from '../assets/movie.svg';
+import Pencilsvg from '../assets/pencil.svg';
+import Userchecksvg from '../assets/user-check.svg';
+import Footer from '../components/footer.astro';
+import BgImage from '../assets/woman_studying.jpg';
+---
+
+<Layout>
+	<Header />
+	
+	<section class="hero ">
+		<div class="container items-center justify-center text-center flex-col relative text-white">
+
+			<h1 class="w-full lg:text-[80px] text-[32px] font-bold z-10 relative ">De opositores para opositores</h1>
+			<img src={BgImage.src} alt="" srcset="" class="absolute inset-0 w-full h-full object-cover">
+			<div class="absolute z-5 w-full h-full bg-black opacity-45">
+		</div>
+	</section>
+
+	<section class="mt-12 ">
+		<div class="container  flex-col bg-white px-10 py-8 relative overflow-hidden">
+			<h1 class="lg:text-[60px] text-[24px] font-bold z-50 relative  ">¿Aún no has empezado a preparar tu oposición?</h1>
+			<p class="my-10 z-10 relative">Muchos opositores dudan o no saben por donde empezar. En Opoinnova te ayudamos a afrontar este reto y conseguir tu plaza.</p>
+			<img src="./woman-thinking.png" alt="" class="absolute z-0 bottom-0 right-0 w-[360px] md:w-[400px]">
+		</div>
+	</section>
+
+	<section class="my-12 ">
+		<div class="container bg-white flex flex-col px-10 py-8">
+
+			<h1 class="lg:text-[60px] text-[24px] font-bold">Matrícula abierta curso 25/26</h1>
+			<p class="">Disponible en modalidad <span class="text-[#798F31] font-bold ">ONLINE</span> o <span class="text-[#007BFF] font-bold">PRESENCIAL</span></p>
+		
+			<div class="my-10 grid lg:grid-cols-5 gap-4">
+
+				<div class="flex flex-row bg-[#f5f5f5] px-4 py-6 rounded-md justify-center items-center rounded-md">
+					<Booksvg />
+					<p class="ml-4">Plan de estudio con temario actualizado y adaptado</p>
+				</div>
+
+				<div class="flex flex-row bg-[#f5f5f5] px-4 py-6 rounded-md justify-center items-center rounded-md">
+					<Moviesvg />
+					<p class="ml-4">Clases online en directo y grabadas</p>
+				</div>
+				<div class="flex flex-row  bg-[#f5f5f5] px-4 py-6 rounded-md justify-center items-center rounded-md">
+
+					<Messagesvg />
+					<p class="ml-4">Tutorías individuales</p>
+				</div>
+				<div class="flex flex-row  bg-[#f5f5f5] px-4 py-6 rounded-md justify-center items-center rounded-md">
+					<Pencilsvg />
+					<p class="ml-4">Simulacros de examen con corrección detallada</p>
+				</div>
+				<div class="flex flex-row  bg-[#f5f5f5] px-4 py-6 rounded-md justify-center items-center rounded-md">
+					<Userchecksvg />
+					<p class="ml-4">Acceso a nuestra plataforma</p>
+				</div>
+
+			</div>
+
+			<div id="info buttons" class="w-full flex flex-row justify-center">
+				<a href="/contact" class="bg-[#798F31] text-white px-12 py-3 rounded-md font-semibold hover:bg-[#0B76A3] hover:scale-102 transition">Solicitar información</a>
+			</div>
+
+		</div>
+	</section>
+
+
+	<Footer />
+
+</Layout>
+
+
+<style>
+	
+
+	body{
+		background-color: #F5F5F5;
+	}
+
+	.hero .container{
+		font-family: "Zalando Sans Expanded", sans-serif;
+		box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+		box-sizing: border-box;
+		max-width: 100%;
+		height: 600px ;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+
+	}
+	
+
+	.container {
+		font-family: "Zalando Sans Expanded", sans-serif;
+		box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+		box-sizing: border-box;
+        max-width: 1660px;
+        margin: 0 auto;
+        display: flex;
+
+    }
+
+
+</style>

@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+
+
+export const prerender = false;
+
+        let Message=" ";
+
+        const sent = Astro.url.searchParams.get('sent');
+
+        if (sent === 'error') {
+            Message = 'No se ha podido enviar el formulario, inténtalo de nuevo mas en unos minutos.';
+        }
+
+        if(sent ==='success'){
+            Message = "¡Formulario enviado con exito! Te contactaremos lo antes posible."
+        }
+
+
+        if (Astro.request.method === 'POST') {
+      
+            console.log('isvalid');
+                
+                try{
+                    const data = await Astro.request.formData();
+                    const name = data.get('name');
+                    const phonenumber = data.get('phonenumber');
+                    const email = data.get('email');
+                    const modality = data.get('modality');
+
+                        // TODO: Handle form submission (e.g., send email)
+                
+                    console.log('Form submitted:', { name, phonenumber, email, modality });
+                
+
+                    return Astro.redirect('/contact?sent=success');
+
+                } catch(error){
+                    console.error('Error processing form submission:', error);
+                    return Astro.redirect('/contact?sent=error');
+                }
+
+    }
+
+
+---
+
+<Layout title="Opoinnova - Contacto">
+    <Header/>
+        <div class="relative w-full min-h-full flex flex-col items-center pt-10 overflow-hidden">
+            <h1 class="text-left md:text-center text-2xl md:text-6xl mb-4 md:mb-10 md:mt-10 font-semibold text-white px-8">Contacta con nosotros para obtener más información</h1>
+             <div class="flex flex-col mb-20 px-4 md:px-0 w-full md:w-4xl mt-10 overflow-hidden">
+
+                <form method="POST" class="bg-white p-8 rounded-md shadow-md w-full pt-14">
+                
+                    <div class="mb-4">
+                        <label for="name" class="block mb-2 font-bold">Nombre</label>
+                        <input type="text" id="name" name="name" required class="w-full p-2 border border-gray-300 rounded-md" autocomplete="name"/>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="phonenumber" class="block mb-2 font-bold">Teléfono</label>
+                        <input type="tel" id="phonenumber" name="phonenumber" required class="w-full p-2 border border-gray-300 rounded-md" autocomplete="tel"/>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block mb-2 font-bold">Correo electrónico </label>
+                        <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded-md" autocomplete="email"/>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="modality" class="block mb-2 font-bold">Modalidad</label>
+                        <select id="modality" name="modality" required class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="" disabled selected>Selecciona una modalidad</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="online">Online</option>
+                            <option value="mixta">Mixta</option>
+                        </select>
+                    </div>
+                    
+                    
+
+                    <div class="flex flex-col md:flex-row justify-between items-center pt-4 md:pt-10">
+                          {sent=='success' && <p class="text-green-800 mb-6 md:m-0">{Message}</p>}
+                          {sent=='error' && <p class="text-orange-800 mb-6 md:m-0">{Message}</p>}
+                         <button type="submit" id="submitButton" class="bg-[#798F31] text-white lg:px-14 py-3 w-full lg:w-fit rounded-md hover:bg-[#0B76A3] hover:scale-105 transition">Enviar</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <p class="text-center gap-4 mb-10 px-4 text-white">Si lo prefieres, puedes contactarnos a través de <a class="font-bold text-[#A7BD5F] underline decoration-2 " href="https://wa.me/610774203" target="_blank">WhatsApp</a> o mandándonos un mensaje a nuestro <a class="font-bold text-[#6BBBDD] underline decoration-2 " href="https://www.instagram.com/opoinnovacv" target="_blank">Instagram</a>.</p>
+
+        
+
+        </div>
+    
+    <Footer/>
+</Layout>
+
+<style>
+
+    @media screen and (min-width: 1024px) {
+        body{
+            background-size: cover;
+        }
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }    
+   
+    body{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)),url("./contact-background.jpg");
+        background-position: center;
+    }
+    
+   
+</style>
+
+
+
+<!-- Contact Form 
+
+ 
+Section -->

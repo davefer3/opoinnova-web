@@ -1,0 +1,120 @@
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/">OPO<span>INNOVA</span></a>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="/contact" class="text-[#333] hover:text-[#0B76A3] transition">Contacto</a></li>
+                <li id="area-alumnos"><a class="px-6 py-3 rounded-md text-white bg-[#798F31] hover:bg-[#0B76A3] transition" href="/">Área alumnos </a></li>
+            </ul>
+        </nav>
+
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    
+    </div>
+</header>
+
+<style>
+    .header {
+        font-family:'josefin sans', sans-serif;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo a {
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #798F31;
+    }
+
+    .logo span {
+        color: #0B76A3;
+    }
+
+    .nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: #;
+        transition: color 0.3s;
+    }
+
+
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: #252525;
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: flex;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .nav.active {
+            display: block;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav.active ul {
+            margin-top: 10px;
+            flex-direction: column;
+            gap: 1.75rem;
+            align-items: center;
+        }
+    }
+</style>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.querySelector('.nav');
+
+    menuToggle?.addEventListener('click', () => {
+        nav?.classList.toggle('active');
+    });
+</script>
