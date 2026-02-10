@@ -3,6 +3,9 @@ import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/header.astro';
 import Footer from '@/components/footer.astro';
 
+
+export const prerender = false;
+
         let Message=" ";
 
         const sent = Astro.url.searchParams.get('sent');
@@ -80,8 +83,8 @@ import Footer from '@/components/footer.astro';
                     
 
                     <div class="flex flex-col md:flex-row justify-end items-center pt-4 md:pt-10">
-                          {sent=='success' && <p class="text-green-800 mb-6 md:m-0 md:px-10">{Message}</p>}
-                          {sent=='error' && <p class="text-orange-800 mb-6 md:m-0">{Message}</p>}
+                          {sent=='success' && <p class="text-green-800 mb-6 md:m-0  md:px-10">{Message}</p>}
+                          {sent=='error' && <p class="text-orange-800 mb-6 md:m-0  md:px-10">{Message}</p>}
                          <button type="submit" id="submitButton" class="bg-[#798F31] text-white lg:px-14 py-3 w-full lg:w-fit rounded-md hover:bg-[#0B76A3] hover:scale-105 transition">Enviar</button>
                     </div>
                 </form>
