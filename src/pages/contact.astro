@@ -32,8 +32,8 @@ export const prerender = false;
 
                         // TODO: Handle form submission (e.g., send email)
 
-                    let subject = name + ' Datos del Solicitante: '
-                    let emailcontent = "<h1>Datos de la consulta</h1> <p>Nombre: "+name+" </p>"+
+                    let subject = name + ' Solicita más información'
+                    let emailcontent = "<h1>Datos de solicitante: </h1> <p>Nombre: "+name+" </p>"+
                                         "<p>Email: "+email+"</p> <p>Teléfono: "+phonenumber+"</p> <p>Modalidad: "+modality+"</p>";
 
                     await sendMail(subject,emailcontent);
@@ -41,6 +41,7 @@ export const prerender = false;
 
 
                 } catch(error){
+
                     console.error('Error processing form submission:', error);
                     return Astro.redirect('/contact?sent=error');
                 }
